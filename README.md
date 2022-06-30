@@ -125,3 +125,25 @@ rails db:migrate
 --data-raw ''`
 
 
+
+# SQL Queries
+
+## Find the Post with Max Comments
+
+ - **SQL Query**
+
+    SELECT posts.id as Post_id, posts.title as Title, COUNT(comments.id) AS comments_count  FROM posts INNER JOIN comments ON comments.post_id = posts.id GROUP BY posts.id
+
+- **ActiveRecord Statement**
+
+    Post.select("posts.*, COUNT(comments.id) comment_count").joins(:comments).group("posts.id").order("comment_count DESC")
+
+## Find the Users who has commented most
+
+ - **SQL Query**
+
+    SELECT users.id as user_id, COUNT(comments.id) comment_count FROM users INNER JOIN comments ON comments.user_id = users.id GROUP BY users.id ORDER BY comment_count DESC
+
+- **ActiveRecord Statement**
+
+    User.select("users.id as user_id, COUNT(comments.id) comment_count").joins(:comments).group("users.id").order("comment_count DESC")
