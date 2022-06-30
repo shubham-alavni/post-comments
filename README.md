@@ -84,7 +84,7 @@ rails db:migrate
 
 ## Reply over Comment (POST)
 
- - `curl --location --request POST 'http://localhost:3000/api/v1/1/reply_to_comment' \
+ - `curl --location --request POST 'http://localhost:3000/api/v1/posts/1/comments/10/replies' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNjU2NTU1MDQzLCJleHAiOjE2NTc4NTEwNDMsImp0aSI6IjY4YWEyMThlLTBiNjAtNDQ5ZS04ZWRlLWM5MTQzZGNiMjcxZCJ9.qpEipGz6DQMLJ7Sg2JawKT7_9K_-0pbreD-cT7oGm6Y' \
 --data-raw '{ "reply": { "body": "Demo Reply" } }'`
