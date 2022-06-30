@@ -105,25 +105,10 @@ rails db:migrate
 
 ## Api to return all posts by any user, api should also be able to sort by number of comments (GET)
 
- - `curl --location --request GET 'http://localhost:3000/api/v1/posts?user_id=1&sort_by=comments' \
+ - `curl --location --request GET 'http://localhost:3000/api/v1/posts?user_id=1&sort_by=desc' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNjU2NTU1MDQzLCJleHAiOjE2NTc4NTEwNDMsImp0aSI6IjY4YWEyMThlLTBiNjAtNDQ5ZS04ZWRlLWM5MTQzZGNiMjcxZCJ9.qpEipGz6DQMLJ7Sg2JawKT7_9K_-0pbreD-cT7oGm6Y' \
 --data-raw ''`
-
-## Find the Post with Max Comments (GET)
-
- - `curl --location --request GET 'http://localhost:3000/api/v1/posts_with_max_comments' \
---header 'Content-Type: application/json' \
---header 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNjU2NTU1MDQzLCJleHAiOjE2NTc4NTEwNDMsImp0aSI6IjY4YWEyMThlLTBiNjAtNDQ5ZS04ZWRlLWM5MTQzZGNiMjcxZCJ9.qpEipGz6DQMLJ7Sg2JawKT7_9K_-0pbreD-cT7oGm6Y' \
---data-raw ''`
-
-## Find the Users who has commented most (GET)
-
- - `curl --location --request GET 'http://localhost:3000/api/v1/most_commented_users' \
---header 'Content-Type: application/json' \
---header 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNjU2NTU1MDQzLCJleHAiOjE2NTc4NTEwNDMsImp0aSI6IjY4YWEyMThlLTBiNjAtNDQ5ZS04ZWRlLWM5MTQzZGNiMjcxZCJ9.qpEipGz6DQMLJ7Sg2JawKT7_9K_-0pbreD-cT7oGm6Y' \
---data-raw ''`
-
 
 
 # SQL Queries
