@@ -132,18 +132,19 @@ rails db:migrate
 
  - **SQL Query**
 
-    SELECT posts.id as Post_id, posts.title as Title, COUNT(comments.id) AS comments_count  FROM posts INNER JOIN comments ON comments.post_id = posts.id GROUP BY posts.id
+    SELECT posts.id, posts.title, Count(comments.id) as comment_count FROM posts INNER JOIN comments ON comments.post_id = posts.id GROUP BY comments.post_id ORDER BY count(comments.post_id) desc
 
 - **ActiveRecord Statement**
 
-    Post.select("posts.*, COUNT(comments.id) comment_count").joins(:comments).group("posts.id").order("comment_count DESC")
+    Post.joins(:comments).group('comments.post_id').order('count(comments.post_id) desc').select('posts.id, posts.title, Count(comments.id) as 
+comment_count')
 
 ## Find the Users who has commented most
 
  - **SQL Query**
 
-    SELECT users.id as user_id, COUNT(comments.id) comment_count FROM users INNER JOIN comments ON comments.user_id = users.id GROUP BY users.id ORDER BY comment_count DESC
+    SELECT user_id, count(id) as comments_count FROM comments GROUP BY comments.user_id
 
 - **ActiveRecord Statement**
 
-    User.select("users.id as user_id, COUNT(comments.id) comment_count").joins(:comments).group("users.id").order("comment_count DESC")
+    Comment.group('user_id').select('user_id, count(id) as comments_count')
